@@ -4,27 +4,27 @@ body {
   margin: 0;
   padding: 0;
   font-family: 'Quicksand', sans-serif;
-  background: #f5f0e6 url('https://www.transparenttextures.com/patterns/paper-fibers.png');
-  color: #3b2f2f;
+  background: #2e1f23 url('https://www.transparenttextures.com/patterns/paper-fibers.png');
+  color: #fbe6e8;
 }
 
 .container {
   max-width: 800px;
   margin: 60px auto;
-  background-color: #fffaf4;
+  background-color: #3f2a2f;
   padding: 50px 40px;
   border-radius: 12px;
-  box-shadow: 0 0 30px rgba(0,0,0,0.1);
-  border: 1px solid #e6dcd0;
+  box-shadow: 0 0 30px rgba(0, 0, 0, 0.2);
+  border: 1px solid #b05465;
 }
 
 h1 {
   font-family: 'Playfair Display', serif;
   font-size: 30px;
   text-align: center;
-  color: #9c6e52;
+  color: #fbe6e8;
   margin-bottom: 30px;
-  border-bottom: 2px dashed #e0cfc0;
+  border-bottom: 2px dashed #b05465;
   padding-bottom: 10px;
 }
 
@@ -32,7 +32,7 @@ p {
   font-size: 16px;
   line-height: 1.9;
   white-space: pre-wrap;
-  color: #4d3b36;
+  color: #fbe6e8;
 }
 
 nav {
@@ -42,7 +42,7 @@ nav {
 
 nav a {
   text-decoration: none;
-  color: #b68675;
+  color: #f8c7d0;
   font-weight: bold;
   margin: 0 12px;
   padding: 6px 10px;
@@ -52,8 +52,8 @@ nav a {
 }
 
 nav a:hover {
-  border: 1px solid #b68675;
-  background-color: #fceee2;
+  border: 1px solid #c97a8d;
+  background-color: #5a2f38;
 }
 
 .fade-in {
@@ -79,18 +79,18 @@ nav a:hover {
 .poem-list a, .letter-list a {
   text-decoration: none;
   font-weight: bold;
-  color: #6d4c41;
+  color: #f8c7d0;
   font-size: 1.1rem;
 }
 
 .poem-list a:hover, .letter-list a:hover {
   text-decoration: underline;
-  color: #a1887f;
+  color: #e6a5b4;
 }
 
 .intro {
   font-style: italic;
-  color: #444;
+  color: #e9cfd2;
   margin-bottom: 1.5rem;
 }
 
@@ -107,7 +107,7 @@ nav a:hover {
   height: auto;
   border-radius: 10px;
   cursor: zoom-in;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
   transition: transform 0.2s;
 }
 
@@ -118,7 +118,7 @@ nav a:hover {
 .lightbox {
   position: fixed;
   top: 0; left: 0; right: 0; bottom: 0;
-  background: rgba(0,0,0,0.85);
+  background: rgba(0, 0, 0, 0.85);
   display: none;
   justify-content: center;
   align-items: center;
@@ -134,18 +134,20 @@ nav a:hover {
   max-height: 90%;
   border-radius: 12px;
 }
+
 .gallery-grid img {
   width: 200px;
   height: auto;
   object-fit: cover;
   border-radius: 12px;
-  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
   transition: transform 0.2s ease;
 }
 
 .gallery-grid img:hover {
   transform: scale(1.02);
 }
+
 .art-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
@@ -164,4 +166,275 @@ nav a:hover {
 
 .art-grid img:hover {
   transform: scale(1.05);
+}
+
+.floating-svg {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 0;
+  overflow: hidden;
+}
+
+.floating-svg svg {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  top: -40px;
+  opacity: 0.4;
+  animation: floatSvg linear infinite;
+}
+
+@keyframes floatSvg {
+  0% {
+    transform: translateY(0) rotate(0deg);
+    opacity: 0.4;
+  }
+  100% {
+    transform: translateY(120vh) rotate(360deg);
+    opacity: 0;
+  }
+}
+
+.side-decor {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  width: 80px;
+  pointer-events: none;
+  z-index: 0;
+  opacity: 0.2;
+}
+
+.side-decor.left {
+  left: 0;
+  background: url('data:image/svg+xml;utf8,<svg fill="maroon" viewBox="0 0 100 800" xmlns="http://www.w3.org/2000/svg"><path d="M50 0 Q70 100 30 200 Q70 300 30 400 Q70 500 30 600 Q70 700 50 800"/></svg>') repeat-y;
+  background-size: contain;
+}
+
+.side-decor.right {
+  right: 0;
+  background: url('data:image/svg+xml;utf8,<svg fill="maroon" viewBox="0 0 100 800" xmlns="http://www.w3.org/2000/svg"><path d="M50 0 Q30 100 70 200 Q30 300 70 400 Q30 500 70 600 Q30 700 50 800"/></svg>') repeat-y;
+  background-size: contain;
+}
+
+.sparkle {
+  position: fixed;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 5;
+  background: radial-gradient(#fff, #f8c7d0);
+  animation: sparkleFade 1s ease-out forwards;
+  opacity: 0.8;
+}
+
+@keyframes sparkleFade {
+  0% { transform: scale(1); opacity: 1; }
+  100% { transform: scale(2); opacity: 0; }
+}
+
+.love-note {
+  position: fixed;
+  font-family: 'Playfair Display', serif;
+  font-size: 1rem;
+  color: #f8c7d0;
+  opacity: 0;
+  animation: floatNote 14s ease-in-out infinite;
+  white-space: nowrap;
+  z-index: 1;
+  pointer-events: none;
+  max-width: 160px;
+  text-shadow: 0 0 2px #e6a5b4;
+}
+
+@keyframes floatNote {
+  0%   { transform: translateY(0); opacity: 0; }
+  15%  { opacity: 1; }
+  85%  { opacity: 1; }
+  100% { transform: translateY(-50px); opacity: 0; }
+}
+
+.glow-orb {
+  position: fixed;
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  background: radial-gradient(circle, #b05465 0%, transparent 70%);
+  filter: blur(40px);
+  pointer-events: none;
+  z-index: 0;
+  opacity: 0.3;
+}
+
+.glow-orb.top-left { top: 0; left: 0; }
+.glow-orb.bottom-right { bottom: 0; right: 0; }
+
+.butterfly {
+  position: fixed;
+  width: 32px;
+  height: 32px;
+  pointer-events: none;
+  z-index: 1;
+  opacity: 0.6;
+  animation: butterflyFloat 18s ease-in-out infinite;
+}
+
+@keyframes butterflyFloat {
+  0% {
+    transform: translateY(0) translateX(0) rotate(0deg);
+    opacity: 0.6;
+  }
+  50% {
+    transform: translateY(-60px) translateX(80px) rotate(20deg);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(0) translateX(160px) rotate(0deg);
+    opacity: 0.6;
+  }
+}
+
+.side-deco {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  width: 100px;
+  opacity: 0.06;
+  background-repeat: repeat-y;
+  background-size: 80px auto;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.side-deco.left {
+  left: 100px;
+  background-image: url('data:image/svg+xml;utf8,<svg fill="%23b05465" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 512"><path d="M32 32c0-8 16-8 16 0s-16 24-16 32 16 24 16 32-16 24-16 32 16 24 16 32-16 24-16 32 16 24 16 32-16 24-16 32 16 24 16 32"/></svg>');
+}
+
+.side-deco.right {
+  right: 100px;
+  background-image: url('data:image/svg+xml;utf8,<svg fill="%23b05465" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 512"><path d="M32 32c0-8 16-8 16 0s-16 24-16 32 16 24 16 32-16 24-16 32 16 24 16 32-16 24-16 32 16 24 16 32-16 24-16 32 16 24 16 32"/></svg>');
+}
+
+.cursor-sparkle {
+  position: fixed;
+  width: 6px;
+  height: 6px;
+  background: radial-gradient(circle, #fff, #f8c7d0);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 9999;
+  animation: sparkleFade 0.5s linear forwards;
+}
+/*hearts*/
+.heart {
+  position: fixed;
+  width: 20px;
+  height: 20px;
+  background-color: #f8c7d0;
+  transform: rotate(45deg);
+  animation: floatHeart 8s linear infinite;
+  z-index: 0;
+  opacity: 0.6;
+}
+
+.heart::before,
+.heart::after {
+  content: '';
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  background-color: #f8c7d0;
+  border-radius: 50%;
+}
+
+.heart::before {
+  top: -10px;
+  left: 0;
+}
+
+.heart::after {
+  left: -10px;
+  top: 0;
+}
+
+@keyframes floatHeart {
+  0% {
+    transform: translateY(0) rotate(45deg);
+    opacity: 0.6;
+  }
+  100% {
+    transform: translateY(-120vh) rotate(45deg);
+    opacity: 0;
+  }
+}
+.floating-svg-heart {
+  position: fixed;
+  width: 24px;
+  height: 24px;
+  top: -40px;
+  pointer-events: none;
+  opacity: 0.5;
+  z-index: 0;
+  animation: floatSvgHeart linear infinite;
+}
+
+@keyframes floatSvgHeart {
+  0% {
+    transform: translateY(0) rotate(0deg);
+    opacity: 0.5;
+  }
+  100% {
+    transform: translateY(110vh) rotate(360deg);
+    opacity: 0;
+  }
+}
+
+.glow {
+  filter: drop-shadow(0 0 8px #f7accf);
+}
+.cursor-heart-svg {
+  position: fixed;
+  width: 20px;
+  height: 20px;
+  pointer-events: none;
+  z-index: 9999;
+  animation: heartFade 1.2s ease-out forwards;
+  filter: drop-shadow(0 0 4px #f7accf);
+  opacity: 0.8;
+}
+
+@keyframes heartFade {
+  0% {
+    transform: scale(1);
+    opacity: 0.9;
+  }
+  100% {
+    transform: scale(1.8) translateY(-20px);
+    opacity: 0;
+  }
+}
+.love-note {
+  position: fixed;
+  font-family: 'Playfair Display', serif;
+  font-size: 1rem;
+  color: #f7accf;
+  opacity: 0;
+  animation: floatNote 14s ease-in-out infinite;
+  white-space: nowrap;
+  z-index: 1;
+  pointer-events: none;
+  max-width: 160px;
+  text-shadow: 0 0 2px #f5b7c2;
+  padding: 6px 10px;
+  margin: 8px;
+}
+.love-note {
+  background: rgba(255, 240, 245, 0.1); /* super soft pink fog */
+  border-radius: 8px;
+  backdrop-filter: blur(2px);
 }
